@@ -1,0 +1,37 @@
+<div class=".mdl-layout__container">
+    <div class="mdl-layout">
+        <header class="mdl-layout__header">
+            <!-- TODO: Add sidenav back in using angular material component
+            <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button">
+                <i class="material-icons"></i>
+            </div> -->
+            <div class="mdl-layout__header-row">
+                <a class="home-link" routerLink="/">
+                    <span class="mdl-layout-title">
+                      <img class="molly-logo" src="../assets/images/molly-32x32.png" />
+                      Ashley's Diner
+                    </span>
+                </a>
+                <div class="mdl-layout-spacer"></div>
+                <a class="mdl-navigation__link" routerLink="/recipes" routerLinkActive="active">Recipes</a>
+                <a class="mdl-navigation__link" routerLink="/menu" routerLinkActive="active">Menu</a>
+            </div>
+        </header>
+        <!-- <div class="mdl-layout__drawer" aria-hidden="true">
+            <span class="mdl-layout-title">Surf 360</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="/">Home</a>
+                <a class="mdl-navigation__link" href="/projects">Projects</a>
+            </nav>
+        </div> -->
+        <main class="mdl-layout__content">
+          <section class="mdl-grid mdl-grid--no-spacing">
+            <nav-chips></nav-chips>
+          </section>
+            <section class="mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                <router-outlet></router-outlet>
+            </section>
+        </main>
+        <!-- <div class="mdl-layout__obfuscator"></div> -->
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<h2 class="mdl-dialog__title" md-dialog-title>{{title}}</h2>
+<div class="mdl-dialog__content">
+  <p>{{content}}</p>
+</div>
+<div class="mdl-dialog__actions">
+  <button type="button" class="mdl-button close" (click)="dialogRef.close('cancel')" md-dialog-close>Cancel</button>
+  <button type="submit" class="mdl-button" (click)="dialogRef.close(confirm)" md-dialog-close>{{confirm}}</button>
+</div>

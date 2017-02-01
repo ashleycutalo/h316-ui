@@ -1,0 +1,9 @@
+<md-chip-list *ngIf="!hide">
+  <md-chip color="primary" selected="true" *ngFor="let page of pages">
+    <a class="nav-chip-link" (click)="navToPage(page)">
+      {{page}}
+      <i class="material-icons nav-arrow">keyboard_arrow_right</i>
+    </a>
+  </md-chip>
+  <md-chip color="accent" selected="true">{{currentPage}}</md-chip>
+</md-chip-list>

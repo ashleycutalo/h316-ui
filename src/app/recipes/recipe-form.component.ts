@@ -1,0 +1,59 @@
+import { Component, EventEmitter } from '@angular/core';
+import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
+import { EmitterService } from '../../emitter.service';
+import { Recipe } from './recipe.model';
+import { RecipeService } from '../shared/services/recipe.service';
+
+@Component({
+    selector: 'recipe-form',
+    template: require('./recipe-form.component.html')
+})
+
+export class RecipeFormComponent {
+  public confirm: string;
+  public title: string;
+  private recipe: Recipe;
+
+  constructor(
+      public dialogRef: MdDialogRef<RecipeFormComponent>,
+      public snackBar: MdSnackBar,
+      private recipeService: RecipeService
+  ) {}
+
+  submit(r : Recipe) {
+    if (this.confirm == "Create Recipe") {
+      this.recipeService.createRecipe(r).subscribe(
+        recipe => {
+          this.dialogRef.close();
+          this.snackBar.open("Successfully created recipe " + r.name, "OK", {
+            duration: 2000,
+          });
+        },
+        err => {
+          console.log(err);
+      });
+    } else if (this.confirm == "Update Recipe") {
+      r.id = this.recipe.id;
+      this.recipeService.updateRecipe(r).subscribe(recipe => {
+        this.dialogRef.close();
+        this.snackBar.open("Successfully modified recipe " + r.name, "OK", {
+          duration: 2000,
+        });
+      },
+      err => {
+        console.log(err);
+    });
+    }
+  }
+
+  ngOnInit() {
+    if (this.recipe === undefined) {
+      this.recipe = {
+        id : '',
+        name: '',
+        description: '',
+        directions: ''
+      }
+    }
+  }
+}
