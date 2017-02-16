@@ -23,6 +23,10 @@ recipe-detail {
   padding: 20px;
 }
 
+menu {
+  width: 100%;
+}
+
 .welcome-card {
   width: 75%;
   margin: auto;
@@ -44,7 +48,18 @@ recipe-detail {
 }
 
 .recipe-card {
-  margin-bottom: 40px;
+  height: 100%;
+  width: 100%;
+}
+
+.date-card {
+  height: 100%;
+  width: 100%;
+}
+
+.menu-card {
+  height: 100%;
+  width: 100%;
 }
 
 .recipes-list-header {
