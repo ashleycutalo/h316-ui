@@ -1,5 +1,6 @@
 @import '~https://fonts.googleapis.com/icon?family=Material+Icons';
 @import '~http://fonts.googleapis.com/css?family=Roboto:300,400,500,700';
+@import "../../../node_modules/fullcalendar/dist/fullcalendar.min.css";
 @import './theme.css';
 
 /* Style Overrides */
