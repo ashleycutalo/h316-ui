@@ -21,7 +21,7 @@ export class RecipeFormComponent {
   ) {}
 
   submit(r : Recipe) {
-    if (this.confirm == "Create Recipe") {
+    if (this.confirm == "CREATE RECIPE") {
       this.recipeService.createRecipe(r).subscribe(
         recipe => {
           this.dialogRef.close();
@@ -32,7 +32,7 @@ export class RecipeFormComponent {
         err => {
           console.log(err);
       });
-    } else if (this.confirm == "Update Recipe") {
+    } else if (this.confirm == "UPDATE RECIPE") {
       r.id = this.recipe.id;
       this.recipeService.updateRecipe(r).subscribe(recipe => {
         this.dialogRef.close();

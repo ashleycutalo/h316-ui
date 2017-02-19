@@ -37,7 +37,7 @@ export class RecipeListComponent implements OnInit, OnChanges {
         this.dialogRef = this.dialog.open(RecipeFormComponent, {
             disableClose: false
         });
-        this.dialogRef.componentInstance.confirm = "Create Recipe";
+        this.dialogRef.componentInstance.confirm = "CREATE RECIPE";
         this.dialogRef.componentInstance.title = "New Recipe";
         this.dialogRef.afterClosed().subscribe(
           recipes => {
@@ -82,7 +82,7 @@ export class RecipeListComponent implements OnInit, OnChanges {
         this.dialogRef = this.dialog.open(RecipeFormComponent, {
             disableClose: false
         });
-        this.dialogRef.componentInstance.confirm = "Update Recipe";
+        this.dialogRef.componentInstance.confirm = "UPDATE RECIPE";
         this.dialogRef.componentInstance.title = "Modify Recipe";
         this.dialogRef.componentInstance.recipe = r;
     }
