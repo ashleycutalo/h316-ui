@@ -44,6 +44,15 @@ menu {
   margin: auto;
 }
 
+.card-actions {
+    font-size: 16px;
+    line-height: normal;
+    width: 100%;
+    background-color: transparent;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
 .recipe-title {
   margin-bottom: 40px;
   box-shadow: 0 0 0 0;
@@ -417,7 +426,6 @@ a {
 }@media screen and (max-width:1024px) {
     .mdl-layout__header-row {
     height: 56px;
-    padding: 0 16px 0 72px;
 }
 .mdl-layout--no-drawer-button .mdl-layout__header-row {
     padding-left: 16px;

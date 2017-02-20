@@ -21,7 +21,18 @@ export class MenuComponent implements OnInit {
                   left:   'title',
                   center: '',
                   right:  'today month basicWeek basicDay prev,next'
-              }
+              },
+              events: [
+                {
+                  title: 'All Day Event',
+                  start: '2017-02-01'
+                },
+                {
+                  title: 'Long Event',
+                  start: '2017-02-07',
+                  end: '2017-02-10'
+                }
+              ]
             };
     }
   }
