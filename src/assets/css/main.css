@@ -90,10 +90,31 @@ menu {
   background-image: url('../images/ashley.png');
   background-size: cover;
 }
+@media screen and (max-width:800px) {
+  .detail-header-image {
+    visibility: hidden;
+  }
+  md-card-header div.detail-header-image {
+    width: 0px;
+  }
+}
+@media screen and (max-width:1024px) {
+  .recipe-date {
+    visibility: hidden;
+  }
+}
 
 .recipe-actions {
   position: absolute;
   right: 20px;
+}
+@media screen and (max-width:800px) {
+  .recipe-actions {
+    visibility: hidden;
+  }
+  .recipe-description {
+    font-size: 12px;
+  }
 }
 
 a, .recipe-detail-link {
@@ -101,6 +122,12 @@ a, .recipe-detail-link {
   color: rgb(0,0,0);
   font-weight: 400;
   font-size: 24px;
+}
+@media screen and (max-width:800px) {
+  a, .recipe-detail-link {
+    font-size: 16px;
+    font-weight: 400;
+  }
 }
 
 .content-input {
