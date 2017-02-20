@@ -69,10 +69,10 @@ export class RecipeListComponent implements OnInit, OnChanges {
         });
         this.dialogRef.componentInstance.title = "Delete Recipe";
         this.dialogRef.componentInstance.content = "Are you sure you want to delete " + id + "?";
-        this.dialogRef.componentInstance.confirm = "Delete";
+        this.dialogRef.componentInstance.confirm = "DELETE";
 
         this.dialogRef.afterClosed().subscribe(result => {
-            if (result == "Delete") {
+            if (result == "DELETE") {
                 this.deleteRecipe(id);
             }
         });

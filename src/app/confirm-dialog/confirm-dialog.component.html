@@ -3,6 +3,6 @@
   <p>{{content}}</p>
 </div>
 <div class="mdl-dialog__actions">
-  <button type="button" class="mdl-button close" (click)="dialogRef.close('cancel')" md-dialog-close>Cancel</button>
-  <button type="submit" class="mdl-button" (click)="dialogRef.close(confirm)" md-dialog-close>{{confirm}}</button>
+  <button md-button class="btn-colored" type="button" (click)="dialogRef.close('cancel')" md-dialog-close>CANCEL</button>
+  <button md-button class="btn-colored" type="submit" (click)="dialogRef.close(confirm)" md-dialog-close>{{confirm}}</button>
 </div>

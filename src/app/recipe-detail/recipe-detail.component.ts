@@ -49,7 +49,8 @@ export class RecipeDetailComponent implements OnInit {
     this.dialogRef = this.dialog.open(RecipeFormComponent, {
       disableClose: false
     });
-    this.dialogRef.componentInstance.confirm = "Update Recipe";
+    this.dialogRef.componentInstance.title = "Modify Recipe";
+    this.dialogRef.componentInstance.confirm = "UPDATE RECIPE";
     this.dialogRef.componentInstance.recipe = r;
   }
 
@@ -70,10 +71,10 @@ export class RecipeDetailComponent implements OnInit {
     });
     this.dialogRef.componentInstance.title = "Delete Recipe";
     this.dialogRef.componentInstance.content = "Are you sure you want to delete " + id + "?";
-    this.dialogRef.componentInstance.confirm = "Delete";
+    this.dialogRef.componentInstance.confirm = "DELETE";
 
     this.dialogRef.afterClosed().subscribe(result => {
-       if (result == "Delete") {
+       if (result == "DELETE") {
          this.deleteRecipe(id);
        }
      });

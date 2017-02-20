@@ -29,9 +29,19 @@ menu {
   padding-right: 45px;
 }
 
+md-card-actions button.btn-colored, .btn-colored {
+  background: #80deea;
+}
+
 .welcome-card {
-  width: 75%;
+  width: 50%;
   margin: auto;
+}
+@media screen and (max-width:1024px) {
+  .welcome-card {
+    width: 75%;
+    margin: auto;
+  }
 }
 
 .welcome-title {
