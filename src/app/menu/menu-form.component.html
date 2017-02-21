@@ -1,0 +1,20 @@
+<h2 class="mdl-dialog__title" md-dialog-title>{{title}}</h2>
+<md-dialog-content>
+    <form #f="ngForm" action="#">
+      <md-input-container>
+          <input md-input value="" placeholder="Name" #name [(ngModel)]="menu.name" name="name" required>
+      </md-input-container>
+      <md-input-container>
+        <input md-input value="" placeholder="Description" #description [(ngModel)]="menu.description" name="description" required>
+      </md-input-container>
+      <md-input-container>
+          <textarea md-input class="content-input" value="" placeholder="Directions" #directions [(ngModel)]="menu.directions" name="directions" required>
+          </textarea>
+      </md-input-container>
+    </form>
+</md-dialog-content>
+
+<md-dialog-actions class="card-actions">
+  <button md-button class="btn-colored" type="button" md-dialog-close>CANCEL</button>
+  <button md-button class="btn-colored" type="submit" (click)="submit(f.value)">{{confirm}}</button>
+</md-dialog-actions>

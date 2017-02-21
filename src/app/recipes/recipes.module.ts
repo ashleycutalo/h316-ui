@@ -11,9 +11,22 @@ import { RecipeFormComponent } from './recipe-form.component';
 import { TruncatePipe } from './truncate.pipe';
 
 @NgModule({
-    imports: [CommonModule, CodemirrorModule, SharedModule],
-    declarations: [RecipesComponent, RecipeFormComponent, RecipeListComponent, TruncatePipe],
-    exports: [RecipesComponent, RecipeListComponent, RecipeFormComponent],
+    imports: [
+      CommonModule,
+      CodemirrorModule,
+      SharedModule
+    ],
+    declarations: [
+      RecipesComponent,
+      RecipeFormComponent,
+      RecipeListComponent,
+      TruncatePipe
+    ],
+    exports: [
+      RecipesComponent,
+      RecipeListComponent,
+      RecipeFormComponent
+    ],
     providers: [],
     entryComponents: [RecipeFormComponent]
 })

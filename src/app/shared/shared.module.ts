@@ -5,21 +5,33 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 
 import { RecipeService } from './services/recipe.service';
+import { MenuService } from './services/menu.service';
 
 /**
  * Do not specify providers for modules that might be imported by a lazy loaded module.
  */
 
 @NgModule({
-  imports: [CommonModule, RouterModule, MaterialModule],
-  exports: [MaterialModule,
-    CommonModule, FormsModule, RouterModule]
+  imports: [
+    CommonModule,
+    RouterModule,
+    MaterialModule
+  ],
+  exports: [
+    MaterialModule,
+    CommonModule,
+    FormsModule,
+    RouterModule
+  ]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: SharedModule,
-      providers: [ RecipeService ]
+      providers: [
+        RecipeService,
+        MenuService
+      ]
     };
   }
 }
