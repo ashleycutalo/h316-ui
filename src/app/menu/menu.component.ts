@@ -28,6 +28,7 @@ export class MenuComponent implements OnInit {
       this.dialogRef.afterClosed().subscribe(
         menuSchedule => {
             this.loadMenuSchedule();
+            this.setCalendarOptions();
         },
         err => {
             console.log(err);
@@ -43,23 +44,34 @@ export class MenuComponent implements OnInit {
           });
   }
 
+  setCalendarOptions() {
+    this.calendarOptions = {
+            height: 'auto',
+            fixedWeekCount : false,
+            defaultDate: new Date().toLocaleDateString(),
+            editable: true,
+            eventLimit: true, // allow "more" link when too many events
+            header: {
+                left:   'title',
+                center: '',
+                right:  'today month basicWeek basicDay prev,next'
+            },
+            events: this.menuSchedule
+          };
+
+  }
+
 
   ngOnInit() {
-    if (this.calendarOptions === undefined) {
-      this.calendarOptions = {
-              height: 'auto',
-              fixedWeekCount : false,
-              defaultDate: new Date().toLocaleDateString(),
-              editable: true,
-              eventLimit: true, // allow "more" link when too many events
-              header: {
-                  left:   'title',
-                  center: '',
-                  right:  'today month basicWeek basicDay prev,next'
-              },
-              events: this.menuSchedule
-            };
-    }
+    this.menuService.getMenus()
+        .subscribe(
+        menuSchedule => {
+          this.menuSchedule = menuSchedule
+          this.setCalendarOptions()
+        },
+        err => {
+            console.log(err);
+        });
   }
 
 }
