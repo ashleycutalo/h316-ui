@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 
-import { RecipeService } from './services/recipe.service';
 import { MenuService } from './services/menu.service';
 
 /**
@@ -29,7 +28,6 @@ export class SharedModule {
     return {
       ngModule: SharedModule,
       providers: [
-        RecipeService,
         MenuService
       ]
     };

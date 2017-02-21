@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { CodemirrorModule } from 'ng2-codemirror';
 import { Recipe } from '../recipes/recipe.model';
-import { RecipeService } from '../shared/services/recipe.service';
+import { MenuService } from '../shared/services/menu.service';
 import { RecipeFormComponent } from '../recipes/recipe-form.component';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component'
 
@@ -24,7 +24,7 @@ export class RecipeDetailComponent implements OnInit {
   code: any;
 
   constructor(
-    private recipeService: RecipeService,
+    private menuService: MenuService,
     private route: ActivatedRoute,
     private router: Router,
     private dialog: MdDialog
@@ -55,7 +55,7 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   deleteRecipe(id: string) {
-      this.recipeService.deleteRecipe(id).subscribe(
+      this.menuService.deleteRecipe(id).subscribe(
         res => {
           this.router.navigateByUrl('/recipes');
         },
@@ -85,7 +85,7 @@ export class RecipeDetailComponent implements OnInit {
 
         let id = params['id'];
 
-        this.recipeService.getRecipeById(id).subscribe(
+        this.menuService.getRecipeById(id).subscribe(
           recipe => this.recipe = recipe,
           err => {
               console.log(err);

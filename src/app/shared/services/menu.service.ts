@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Menu } from '../../menu/menu.model';
+import { Recipe } from '../../recipes/recipe.model';
 import { Observable } from 'rxjs/Rx';
 
 import 'rxjs/add/operator/map';
@@ -12,7 +13,9 @@ export class MenuService {
 
     //TODO: make this configurable
     private menuUrl = 'http://localhost:8081/menu';
+    private recipesUrl = 'http://localhost:8080/recipes';
 
+    // Menu Scheduling
     getMenus(): Observable<Menu[]> {
         return this.http.get(this.menuUrl)
             .map((res: Response) => res.json())
@@ -45,4 +48,38 @@ export class MenuService {
            .map((response: Response) => <Menu>response.json())
            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
    }
+
+   // Recipe CRUD
+   getRecipes(): Observable<Recipe[]> {
+       return this.http.get(this.recipesUrl)
+           .map((res: Response) => res.json())
+           .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+   }
+
+   getRecipeById(id: string): Observable<Recipe> {
+     return this.http.get(`${this.recipesUrl}/${id}`)
+         .map((res: Response) => res.json())
+         .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+   }
+
+   createRecipe(body: Object): Observable<Recipe[]> {
+       let bodyString = JSON.stringify(body);
+       let headers = new Headers({ 'Content-Type': 'application/json' });
+       let options = new RequestOptions({ headers: headers });
+       return this.http.post(this.recipesUrl, body, options)
+           .map((res: Response) => res.json())
+           .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+   }
+
+   deleteRecipe(id: string): Observable<Recipe[]> {
+       return this.http.delete(`${this.recipesUrl}/${id}`)
+           .map((res: Response) => res.json())
+           .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+   }
+
+   updateRecipe(itemToUpdate: Recipe): Observable<Recipe[]> {
+      return this.http.put(`${this.recipesUrl}/${itemToUpdate.id}`, JSON.stringify(itemToUpdate))
+          .map((response: Response) => <Recipe>response.json())
+          .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
 }

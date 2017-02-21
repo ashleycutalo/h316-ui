@@ -18,6 +18,7 @@ export class MenuFormComponent {
   ) {}
 
   submit(m : Menu) {
+    m.url = 'google.com'
     this.menuService.createMenu(m).subscribe(
       menu => {
         this.dialogRef.close();

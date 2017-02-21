@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { EmitterService } from '../../emitter.service';
 import { Recipe } from './recipe.model';
 import { RecipeFormComponent } from './recipe-form.component';
-import { RecipeService } from '../shared/services/recipe.service';
+import { MenuService } from '../shared/services/menu.service';
 import { TruncatePipe } from './truncate.pipe';
 import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component'
@@ -17,7 +17,7 @@ export class RecipeListComponent implements OnInit, OnChanges {
     dialogRef: MdDialogRef<any>;
 
     constructor(
-        private recipeService: RecipeService,
+        private menuService: MenuService,
         private dialog: MdDialog,
         public snackBar: MdSnackBar
     ) { }
@@ -25,7 +25,7 @@ export class RecipeListComponent implements OnInit, OnChanges {
     recipes: Recipe[];
 
     loadRecipes() {
-        this.recipeService.getRecipes()
+        this.menuService.getRecipes()
             .subscribe(
             recipes => this.recipes = recipes,
             err => {
@@ -50,7 +50,7 @@ export class RecipeListComponent implements OnInit, OnChanges {
 
     //TODO: refactor edit/delete into reusable component
     deleteRecipe(id: string) {
-        this.recipeService.deleteRecipe(id).subscribe(
+        this.menuService.deleteRecipe(id).subscribe(
             recipes => {
                 EmitterService.get("recipes").emit(recipes);
                 this.loadRecipes();

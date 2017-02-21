@@ -2,7 +2,7 @@ import { Component, EventEmitter } from '@angular/core';
 import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
 import { EmitterService } from '../../emitter.service';
 import { Recipe } from './recipe.model';
-import { RecipeService } from '../shared/services/recipe.service';
+import { MenuService } from '../shared/services/menu.service';
 
 @Component({
     selector: 'recipe-form',
@@ -17,12 +17,12 @@ export class RecipeFormComponent {
   constructor(
       public dialogRef: MdDialogRef<RecipeFormComponent>,
       public snackBar: MdSnackBar,
-      private recipeService: RecipeService
+      private menuService: MenuService
   ) {}
 
   submit(r : Recipe) {
     if (this.confirm == "CREATE RECIPE") {
-      this.recipeService.createRecipe(r).subscribe(
+      this.menuService.createRecipe(r).subscribe(
         recipe => {
           this.dialogRef.close();
           this.snackBar.open("Successfully created recipe " + r.name, "OK", {
@@ -34,7 +34,7 @@ export class RecipeFormComponent {
       });
     } else if (this.confirm == "UPDATE RECIPE") {
       r.id = this.recipe.id;
-      this.recipeService.updateRecipe(r).subscribe(recipe => {
+      this.menuService.updateRecipe(r).subscribe(recipe => {
         this.dialogRef.close();
         this.snackBar.open("Successfully modified recipe " + r.name, "OK", {
           duration: 2000,
