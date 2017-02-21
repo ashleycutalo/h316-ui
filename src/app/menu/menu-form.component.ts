@@ -21,6 +21,7 @@ export class MenuFormComponent {
 
   submit(m : Menu) {
     m.url = 'google.com'
+    console.log(m);
     this.menuService.createMenu(m).subscribe(
       menu => {
         this.dialogRef.close();
@@ -34,6 +35,13 @@ export class MenuFormComponent {
   }
 
   ngOnInit() {
+    this.menuService.getRecipes()
+        .subscribe(
+        recipes => this.recipes = recipes,
+        err => {
+            console.log(err);
+        });
+
     if (this.menu === undefined) {
       this.menu = {
         id : '',

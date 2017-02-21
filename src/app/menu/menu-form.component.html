@@ -1,9 +1,12 @@
 <h2 class="mdl-dialog__title" md-dialog-title>Schedule Recipe</h2>
 <md-dialog-content>
     <form #f="ngForm" action="#">
-      <md-input-container>
+      <md-select placeholder="Recipe">
+        <md-option *ngFor="let recipe of recipes" [value]="menu.title" required>{{ recipe.name }}</md-option>
+      </md-select>
+      <!-- <md-input-container>
           <input md-input value="" placeholder="Recipe" #title [(ngModel)]="menu.title" name="title" required>
-      </md-input-container>
+      </md-input-container> -->
       <md-input-container>
         <input type="date" md-input value="" placeholder="Date" #start [(ngModel)]="menu.start" name="start" required>
       </md-input-container>
