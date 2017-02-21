@@ -45,18 +45,6 @@ export class MenuComponent implements OnInit {
 
 
   ngOnInit() {
-    var test = [
-      {
-        title: 'All Day Event',
-        start: '2017-02-01'
-      },
-      {
-        id: 'someasetkahsdtlkahsdrlakjsdhralkser',
-        title: 'Long Event',
-        start: '2017-02-09',
-        end: '2017-02-10'
-      }
-    ];
     if (this.calendarOptions === undefined) {
       this.calendarOptions = {
               height: 'auto',
@@ -69,8 +57,7 @@ export class MenuComponent implements OnInit {
                   center: '',
                   right:  'today month basicWeek basicDay prev,next'
               },
-              events: test
-              // events: this.menuSchedule
+              events: this.menuSchedule
             };
     }
   }

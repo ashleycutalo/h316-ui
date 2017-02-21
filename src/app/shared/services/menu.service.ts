@@ -12,7 +12,7 @@ export class MenuService {
     constructor(private http: Http) { }
 
     //TODO: make this configurable
-    private menuUrl = 'http://localhost:8081/menu';
+    private menuUrl = 'http://localhost:8080/menus';
     private recipesUrl = 'http://localhost:8080/recipes';
 
     // Menu Scheduling
@@ -22,13 +22,14 @@ export class MenuService {
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
-    getMenuById(id: string): Observable<Menu> {
-      return this.http.get(`${this.menuUrl}/${id}`)
-          .map((res: Response) => res.json())
-          .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
-    }
+    // getMenuById(id: string): Observable<Menu> {
+    //   return this.http.get(`${this.menuUrl}/${id}`)
+    //       .map((res: Response) => res.json())
+    //       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    // }
 
     createMenu(body: Object): Observable<Menu[]> {
+        console.log(JSON.stringify(body))
         let bodyString = JSON.stringify(body);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
@@ -37,17 +38,17 @@ export class MenuService {
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
-    deleteMenu(id: string): Observable<Menu[]> {
-        return this.http.delete(`${this.menuUrl}/${id}`)
-            .map((res: Response) => res.json())
-            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
-    }
-
-    updateMenu(itemToUpdate: Menu): Observable<Menu[]> {
-       return this.http.put(`${this.menuUrl}/${itemToUpdate.id}`, JSON.stringify(itemToUpdate))
-           .map((response: Response) => <Menu>response.json())
-           .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
-   }
+  //   deleteMenu(id: string): Observable<Menu[]> {
+  //       return this.http.delete(`${this.menuUrl}/${id}`)
+  //           .map((res: Response) => res.json())
+  //           .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  //   }
+   //
+  //   updateMenu(itemToUpdate: Menu): Observable<Menu[]> {
+  //      return this.http.put(`${this.menuUrl}/${itemToUpdate.id}`, JSON.stringify(itemToUpdate))
+  //          .map((response: Response) => <Menu>response.json())
+  //          .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  //  }
 
    // Recipe CRUD
    getRecipes(): Observable<Recipe[]> {
