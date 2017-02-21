@@ -9,8 +9,6 @@ import { Menu } from './menu.model';
 })
 
 export class MenuFormComponent {
-  public confirm: string;
-  public title: string;
   private menu: Menu;
 
   constructor(
@@ -20,27 +18,25 @@ export class MenuFormComponent {
   ) {}
 
   submit(m : Menu) {
-    if (this.confirm == "SCHEDULE MENU") {
-      this.menuService.createMenu(m).subscribe(
-        menu => {
-          this.dialogRef.close();
-          this.snackBar.open("Successfully scheduled menu " + m.name, "OK", {
-            duration: 2000,
-          });
-        },
-        err => {
-          console.log(err);
-      });
-    }
+    this.menuService.createMenu(m).subscribe(
+      menu => {
+        this.dialogRef.close();
+        this.snackBar.open("Successfully scheduled menu " + m.title, "OK", {
+          duration: 2000,
+        });
+      },
+      err => {
+        console.log(err);
+    });
   }
 
   ngOnInit() {
     if (this.menu === undefined) {
       this.menu = {
         id : '',
-        name: '',
-        description: '',
-        directions: ''
+        title: '',
+        start: new Date(),
+        url: ''
       }
     }
   }

@@ -1,9 +1,8 @@
 export class Menu {
   constructor(
     public id: string,
-    public name: string,
-    public description: string,
-    public directions: string,
-    public created?: Date
+    public title: string,
+    public start: Date,
+    public url: string
   ) {  }
 }
