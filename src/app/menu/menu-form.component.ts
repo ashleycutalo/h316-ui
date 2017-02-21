@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
 import { MenuService } from '../shared/services/menu.service';
-import { Menu } from './menu.model';
+import { Menu } from '../shared/models/menu.model';
+import { Recipe } from '../shared/models/recipe.model';
 
 @Component({
     selector: 'menu-form',
@@ -9,7 +10,8 @@ import { Menu } from './menu.model';
 })
 
 export class MenuFormComponent {
-  private menu: Menu;
+  private menu: Menu
+  private recipes: Recipe[]
 
   constructor(
       public dialogRef: MdDialogRef<MenuFormComponent>,

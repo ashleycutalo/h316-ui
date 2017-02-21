@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarComponent } from "angular2-fullcalendar/src/calendar/calendar";
 import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
-import { Menu } from './menu.model';
+import { Menu } from '../shared/models/menu.model';
 import { MenuService } from '../shared/services/menu.service';
 import { MenuFormComponent } from './menu-form.component';
 

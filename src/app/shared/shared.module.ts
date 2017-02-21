@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 
 import { MenuService } from './services/menu.service';
+import { Menu } from './models/menu.model';
 
 /**
  * Do not specify providers for modules that might be imported by a lazy loaded module.

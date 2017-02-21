@@ -3,7 +3,7 @@ import { MdDialog, MdDialogRef } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { CodemirrorModule } from 'ng2-codemirror';
-import { Recipe } from '../recipes/recipe.model';
+import { Recipe } from '../shared/models/recipe.model';
 import { MenuService } from '../shared/services/menu.service';
 import { RecipeFormComponent } from '../recipes/recipe-form.component';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component'

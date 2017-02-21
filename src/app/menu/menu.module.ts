@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MdCardModule, MdInputModule, MdGridListModule, MdButtonModule } from '@angular/material';
 import { SharedModule } from '../shared/shared.module';
-import { Menu } from './menu.model';
 import { MenuComponent } from './menu.component';
 import { MenuFormComponent } from './menu-form.component';
 import { CalendarComponent } from "angular2-fullcalendar/src/calendar/calendar";

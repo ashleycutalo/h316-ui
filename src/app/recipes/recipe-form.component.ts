@@ -1,7 +1,7 @@
 import { Component, EventEmitter } from '@angular/core';
 import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
 import { EmitterService } from '../../emitter.service';
-import { Recipe } from './recipe.model';
+import { Recipe } from '../shared/models/recipe.model';
 import { MenuService } from '../shared/services/menu.service';
 
 @Component({

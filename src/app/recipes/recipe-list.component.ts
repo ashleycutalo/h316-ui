@@ -1,7 +1,7 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { EmitterService } from '../../emitter.service';
-import { Recipe } from './recipe.model';
+import { Recipe } from '../shared/models/recipe.model';
 import { RecipeFormComponent } from './recipe-form.component';
 import { MenuService } from '../shared/services/menu.service';
 import { TruncatePipe } from './truncate.pipe';
