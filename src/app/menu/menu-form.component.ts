@@ -21,7 +21,8 @@ export class MenuFormComponent {
   ) {}
 
   submit(m : Menu) {
-    m.url = 'recipes/' +  m.recipe.id
+    m.url = 'menu/' + m.start
+    // m.url = 'recipes/' +  m.recipe.id
     m.title = m.meal + ": " + m.recipe.name
     this.menuService.createMenu(m).subscribe(
       menu => {

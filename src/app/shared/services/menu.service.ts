@@ -22,6 +22,12 @@ export class MenuService {
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
+    getMenusByDate(date : string): Observable<Menu[]> {
+        return this.http.get(`${this.menuUrl}/${date}`)
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
     // getMenuById(id: string): Observable<Menu> {
     //   return this.http.get(`${this.menuUrl}/${id}`)
     //       .map((res: Response) => res.json())

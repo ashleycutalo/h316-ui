@@ -22,7 +22,7 @@ export class RecipeListComponent implements OnInit, OnChanges {
         public snackBar: MdSnackBar
     ) { }
 
-    recipes: Recipe[];
+    recipes: Recipe[]
 
     loadRecipes() {
         this.menuService.getRecipes()

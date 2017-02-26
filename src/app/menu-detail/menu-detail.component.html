@@ -1,0 +1,41 @@
+<md-card class="recipe-title">
+      <h3 class="recipes-list-header">Menu for {{ date | date:fullDate }}</h3>
+      <!-- <button md-fab class="new-recipe-button" (click)="openCreateForm()"><md-icon>add</md-icon></button> -->
+</md-card>
+
+<md-card *ngFor="let menu of menus">
+  <md-card-header>
+    <md-card-title class="recipe-detail-title">
+      {{ menu.Meal }}
+    </md-card-title>
+    <div class="recipe-actions">
+      <i class="material-icons action" (click)="openDeleteConfirm(menu.id)">&#xE872;</i>
+    </div>
+  </md-card-header>
+  <md-card-content class="recipe-description">
+    <md-card class="file-detail-header" (click)="showRecipe(menu.Recipe.id)">
+        <span>{{ menu.Recipe.name }}</span>
+        <i class="material-icons file-detail-icon" *ngIf="!showRecipeDiv">keyboard_arrow_down</i>
+        <i class="material-icons file-detail-icon" *ngIf="showRecipeDiv">keyboard_arrow_up</i>
+    </md-card>
+    <md-card *ngIf="showRecipeDiv">
+      <md-card>
+        <md-card-header>
+          <div md-card-avatar class="detail-header-image"></div>
+          <md-card-title class="recipe-detail-title">{{recipe?.name}}</md-card-title>
+          <md-card-subtitle>{{recipe?.description}}</md-card-subtitle>
+        </md-card-header>
+        <md-card-content>
+          <md-input-container>
+            <input id="name" md-input value="{{recipe?.name}}" disabled>
+            <label class="md-input-placeholder md-float" for="name">Name</label>
+          </md-input-container>
+          <md-card class="content-output">
+            {{recipe?.directions}}
+          </md-card>
+        </md-card-content>
+      </md-card>
+    </md-card>
+
+  </md-card-content>
+</md-card>

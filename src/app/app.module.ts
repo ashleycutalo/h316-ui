@@ -14,6 +14,7 @@ import { SharedModule } from './shared/shared.module';
 import { ConfirmDialogModule } from './confirm-dialog/confirm-dialog.module';
 import { NavChipsModule } from './nav-chips/nav-chips.module';
 import { MenuModule } from './menu/menu.module';
+import { MenuDetailModule } from './menu-detail/menu-detail.module';
 
 import { EmitterService } from '../emitter.service';
 
@@ -31,6 +32,7 @@ import { EmitterService } from '../emitter.service';
         ConfirmDialogModule,
         NavChipsModule,
         MenuModule,
+        MenuDetailModule,
         SharedModule.forRoot(),
         MaterialModule.forRoot(),
         routing

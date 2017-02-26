@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {RecipeFormComponent} from '../recipes/recipe-form.component';
+import { Component } from '@angular/core';
+import { RecipeFormComponent } from '../recipes/recipe-form.component';
 
 @Component({
     selector: 'home',
