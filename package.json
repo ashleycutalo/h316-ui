@@ -53,7 +53,6 @@
     "karma-coverage": "^1.0.0",
     "karma-jasmine": "^0.3.8",
     "karma-mocha-reporter": "^2.0.4",
-    "karma-phantomjs-launcher": "^1.0.0",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.7.0",
     "null-loader": "^0.1.1",

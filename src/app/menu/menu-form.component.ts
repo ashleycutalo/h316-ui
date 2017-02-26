@@ -12,6 +12,7 @@ import { Recipe } from '../shared/models/recipe.model';
 export class MenuFormComponent {
   private menu: Menu
   private recipes: Recipe[]
+  private meals = ["Breakfast", "Lunch", "Dinner"]
 
   constructor(
       public dialogRef: MdDialogRef<MenuFormComponent>,
@@ -20,18 +21,24 @@ export class MenuFormComponent {
   ) {}
 
   submit(m : Menu) {
-    m.url = 'google.com'
-    console.log(m);
+    m.url = 'recipes/' +  m.recipe.id
+    m.title = m.meal + ": " + m.recipe.name
     this.menuService.createMenu(m).subscribe(
       menu => {
         this.dialogRef.close();
-        this.snackBar.open("Successfully scheduled menu " + m.title, "OK", {
+        this.snackBar.open("Successfully scheduled " + m.title, "OK", {
           duration: 2000,
         });
       },
       err => {
         console.log(err);
     });
+  }
+
+  private today() {
+    var local = new Date()
+    local.setMinutes(local.getMinutes() - local.getTimezoneOffset())
+    return local.toJSON().slice(0,10)
   }
 
   ngOnInit() {
@@ -46,7 +53,9 @@ export class MenuFormComponent {
       this.menu = {
         id : '',
         title: '',
-        start: new Date(),
+        meal: '',
+        recipe: null,
+        start: this.today(),
         url: ''
       }
     }

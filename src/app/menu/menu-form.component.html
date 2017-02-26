@@ -1,14 +1,14 @@
 <h2 class="mdl-dialog__title" md-dialog-title>Schedule Recipe</h2>
 <md-dialog-content>
     <form #f="ngForm" action="#">
-      <md-select placeholder="Recipe">
-        <md-option *ngFor="let recipe of recipes" [value]="menu.title" required>{{ recipe.name }}</md-option>
+      <md-select class="fullselect" placeholder="Meal" [(ngModel)]="menu.meal"  name="meal">
+        <md-option *ngFor="let meal of meals" [value]="meal" ngDefaultControl required>{{ meal }}</md-option>
       </md-select>
-      <!-- <md-input-container>
-          <input md-input value="" placeholder="Recipe" #title [(ngModel)]="menu.title" name="title" required>
-      </md-input-container> -->
-      <md-input-container>
-        <input type="date" md-input value="" placeholder="Date" #start [(ngModel)]="menu.start" name="start" required>
+      <md-select class="fullselect" placeholder="Recipe" [(ngModel)]="menu.recipe"  name="recipe">
+        <md-option *ngFor="let recipe of recipes" [value]="recipe" ngDefaultControl required>{{ recipe.name }}</md-option>
+      </md-select>
+      <md-input-container class="datepicker">
+        <input type="date" md-input value="today" placeholder="Date" #start [(ngModel)]="menu.start" name="start" required>
       </md-input-container>
     </form>
 </md-dialog-content>
