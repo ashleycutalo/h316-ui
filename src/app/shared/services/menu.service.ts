@@ -44,12 +44,12 @@ export class MenuService {
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
-  //   deleteMenu(id: string): Observable<Menu[]> {
-  //       return this.http.delete(`${this.menuUrl}/${id}`)
-  //           .map((res: Response) => res.json())
-  //           .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
-  //   }
-   //
+    deleteMenu(id: string): Observable<Menu[]> {
+        return this.http.delete(`${this.menuUrl}/${id}`)
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
   //   updateMenu(itemToUpdate: Menu): Observable<Menu[]> {
   //      return this.http.put(`${this.menuUrl}/${itemToUpdate.id}`, JSON.stringify(itemToUpdate))
   //          .map((response: Response) => <Menu>response.json())
