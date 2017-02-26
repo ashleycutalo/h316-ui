@@ -3,28 +3,24 @@
       <button md-fab class="new-recipe-button" (click)="openCreateForm()"><md-icon>add</md-icon></button>
 </md-card>
 
-<md-grid-list cols="2">
-  <md-grid-tile class="recipe-tile" *ngFor="let recipe of recipes">
-    <md-card class="recipe-card">
-      <md-card-header>
-        <div md-card-avatar class="detail-header-image"></div>
-        <md-card-title>
-          <a class="recipe-detail-link" [routerLink]="['/recipes', recipe.id]">{{ recipe.name }}</a>
-        </md-card-title>
-        <md-card-subtitle class="recipe-date">{{ recipe.created | date: 'longDate' }}</md-card-subtitle>
-        <div class="recipe-actions">
-          <i class="material-icons action" (click)="openEditForm(recipe)">&#xE254;</i>
-          <i class="material-icons action" (click)="openDeleteConfirm(recipe.id)">&#xE872;</i>
-        </div>
-      </md-card-header>
-      <!-- <img md-card-image src="../../assets/images/fork-knife-plate.jpg"> -->
-      <md-card-content class="recipe-description">
-        {{ recipe.description | truncate : 500 }}
-      </md-card-content>
-      <md-card-actions class="card-actions">
-        <button md-button class="btn-colored"[routerLink]="['/recipes', recipe.id]">READ MORE</button>
-        <button md-button class="btn-colored">ADD TO MENU</button>
-      </md-card-actions>
-    </md-card>
-  </md-grid-tile>
-</md-grid-list>
+<md-card class="recipe-card" *ngFor="let recipe of recipes">
+  <md-card-header>
+    <div md-card-avatar class="detail-header-image"></div>
+    <md-card-title>
+      <a class="recipe-detail-link" [routerLink]="['/recipes', recipe.id]">{{ recipe.name }}</a>
+    </md-card-title>
+    <md-card-subtitle class="recipe-date">{{ recipe.created | date: 'longDate' }}</md-card-subtitle>
+    <div class="recipe-actions">
+      <i class="material-icons action" (click)="openEditForm(recipe)">&#xE254;</i>
+      <i class="material-icons action" (click)="openDeleteConfirm(recipe.id)">&#xE872;</i>
+    </div>
+  </md-card-header>
+  <!-- <img md-card-image src="../../assets/images/fork-knife-plate.jpg"> -->
+  <md-card-content class="recipe-description">
+    {{ recipe.description | truncate : 500 }}
+  </md-card-content>
+  <md-card-actions class="card-actions">
+    <button md-button class="btn-colored"[routerLink]="['/recipes', recipe.id]">READ MORE</button>
+    <button md-button class="btn-colored">ADD TO MENU</button>
+  </md-card-actions>
+</md-card>

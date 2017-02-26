@@ -32,6 +32,11 @@ nav-chips {
   padding: 15px;
 }
 
+recipe-list {
+  margin: auto;
+  width: 100%;
+}
+
 recipe-detail {
   width: 100%;
   margin: auto;
@@ -82,8 +87,15 @@ md-card-actions button.btn-colored, .btn-colored {
 }
 
 .recipe-card {
-  height: 100%;
-  width: 100%;
+  width: 500px;
+  display: inline-block;
+  margin: 20px;
+}
+@media screen and (max-width:800px) {
+  .recipe-card {
+    width: 325px;
+    margin: 12px;
+  }
 }
 
 .date-card {
