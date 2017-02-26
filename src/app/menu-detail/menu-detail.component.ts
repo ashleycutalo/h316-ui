@@ -39,11 +39,31 @@ export class MenuDetailComponent implements OnInit {
    }
  }
 
+ sortMenusByMeal() {
+   var sortedMenus : Menu[] = []
+   if (this.menus.length == 0) {
+     console.log("No menus to sort")
+   } else {
+     var breakfast : Menu = this.menus.filter(m => m.meal == "Breakfast")[0]
+     var lunch : Menu = this.menus.filter(m => m.meal == "Lunch")[0]
+     var dinner : Menu = this.menus.filter(m => m.meal == "Dinner")[0]
+
+     breakfast ? sortedMenus.push(breakfast) : null
+     lunch ? sortedMenus.push(lunch) : null
+     dinner ? sortedMenus.push(dinner) : null
+   }
+
+   this.menus = sortedMenus
+ }
+
   ngOnInit() {
     this.date = this.getCurrentPage(this.router.url)
     this._menuService.getMenusByDate(this.date)
         .subscribe(
-        menus => this.menus = menus,
+        menus => {
+          this.menus = menus
+          this.sortMenusByMeal()
+        },
         err => {
             console.log(err);
         });
