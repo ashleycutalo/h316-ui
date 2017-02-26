@@ -27,8 +27,9 @@ export class MenuComponent implements OnInit {
       });
       this.dialogRef.afterClosed().subscribe(
         menuSchedule => {
-            this.loadMenuSchedule();
-            this.setCalendarOptions();
+            this.loadMenuSchedule()
+            this.setCalendarOptions()
+            location.reload()
         },
         err => {
             console.log(err);
