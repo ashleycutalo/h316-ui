@@ -14,6 +14,7 @@ export class MenuFormComponent {
   private preexistingMenus: Menu[]
   private recipes: Recipe[]
   private meals = ["Breakfast", "Lunch", "Dinner"]
+  private showMealExistsError : boolean = false
 
   constructor(
       public dialogRef: MdDialogRef<MenuFormComponent>,
@@ -23,7 +24,7 @@ export class MenuFormComponent {
 
   submit(m : Menu) {
     if (this.containsKey(this.preexistingMenus, m.meal)) {
-      console.log("Menu exists!!!!")
+      this.showMealExistsError = true
     } else {
       m.url = 'menu/' + m.start
       m.title = m.meal + ": " + m.recipe.name

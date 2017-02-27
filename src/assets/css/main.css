@@ -51,6 +51,11 @@ recipe-detail {
    cursor: pointer;
 }
 
+.validation-error {
+  font-size: 12px;
+  color: red;
+}
+
 .material-icons.file-detail-icon {
    padding: 0 14px;
    position: absolute;
