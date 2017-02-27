@@ -206,7 +206,7 @@ a, .recipe-detail-link {
 }
 
 .content-output {
-  min-height: 500px;
+  /*min-height: 500px;*/
   white-space: pre-wrap;
 }
 
