@@ -29,7 +29,7 @@ export class MenuComponent implements OnInit {
         menuSchedule => {
             this.loadMenuSchedule()
             this.setCalendarOptions()
-            location.reload()
+            // location.reload()
         },
         err => {
             console.log(err);
