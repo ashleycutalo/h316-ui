@@ -4,6 +4,7 @@
       <md-select class="fullselect" placeholder="Meal" [(ngModel)]="menu.meal"  name="meal">
         <md-option *ngFor="let meal of meals" [value]="meal" ngDefaultControl required>{{ meal }}</md-option>
       </md-select>
+      <div class="validation-error" *ngIf="showMealExistsError">Schedule for meal already exists.</div>
       <md-select class="fullselect" placeholder="Recipe" [(ngModel)]="menu.recipe"  name="recipe">
         <md-option *ngFor="let recipe of recipes" [value]="recipe" ngDefaultControl required>{{ recipe.name }}</md-option>
       </md-select>
