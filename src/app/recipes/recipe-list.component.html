@@ -7,7 +7,7 @@
   <md-card-header>
     <div md-card-avatar class="detail-header-image"></div>
     <md-card-title>
-      <a class="recipe-detail-link" [routerLink]="['/recipes', recipe.id]">{{ recipe.name }}</a>
+      <a class="recipe-detail-link" [routerLink]="['/recipes', recipe.id]">{{ recipe.name | truncate : 30 }}</a>
     </md-card-title>
     <md-card-subtitle class="recipe-date">{{ recipe.created | date: 'longDate' }}</md-card-subtitle>
     <div class="recipe-actions">
@@ -15,7 +15,7 @@
       <i class="material-icons action" (click)="openDeleteConfirm(recipe.id)">&#xE872;</i>
     </div>
   </md-card-header>
-  <!-- <img md-card-image src="../../assets/images/fork-knife-plate.jpg"> -->
+  <img md-card-image class="recipe-card-image" src="../../assets/images/fork-knife-plate.jpg">
   <md-card-content class="recipe-description">
     {{ recipe.description | truncate : 500 }}
   </md-card-content>
