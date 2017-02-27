@@ -15,7 +15,8 @@
       <i class="material-icons action" (click)="openDeleteConfirm(recipe.id)">&#xE872;</i>
     </div>
   </md-card-header>
-  <img md-card-image class="recipe-card-image" src="../../assets/images/fork-knife-plate.jpg">
+  <img md-card-image *ngIf="recipe.imageUrl" class="recipe-card-image" src="{{recipe.imageUrl}}">
+  <img md-card-image *ngIf="!recipe.imageUrl" clas="recipe-card-image" src="../../assets/images/fork-knife-plate.jpg">
   <md-card-content class="recipe-description">
     {{ recipe.description | truncate : 500 }}
   </md-card-content>

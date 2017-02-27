@@ -4,6 +4,7 @@ export class Recipe {
     public name: string,
     public description: string,
     public directions: string,
+    public imageUrl: string,
     public created?: Date
   ) {  }
 }

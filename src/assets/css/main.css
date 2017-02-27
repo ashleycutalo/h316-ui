@@ -43,6 +43,21 @@ recipe-detail {
   padding: 20px;
 }
 
+.recipe-card-image {
+  height: 500px;
+}
+@media (max-width: 800px) {
+  .recipe-card-image {
+    height: 300px;
+  }
+}
+
+[md-card-image].recipe-detail-image {
+  width: 50%;
+  margin: auto;
+  display: block;
+}
+
 .file-detail-header {
    background-color: #03a9f4 ;
    color: white;

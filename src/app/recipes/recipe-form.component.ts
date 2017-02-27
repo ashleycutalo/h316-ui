@@ -52,7 +52,8 @@ export class RecipeFormComponent {
         id : '',
         name: '',
         description: '',
-        directions: ''
+        directions: '',
+        imageUrl: ''
       }
     }
   }

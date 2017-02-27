@@ -16,5 +16,9 @@
     <md-card class="content-output">
       {{recipe?.directions}}
     </md-card>
+    <md-card>
+      <img class="recipe-detail-image" *ngIf="recipe?.imageUrl" md-card-image src="{{recipe?.imageUrl}}">
+      <img class="recipe-detail-image" *ngIf="!recipe?.imageUrl" md-card-image src="../../assets/images/fork-knife-plate.jpg">
+    </md-card>
   </md-card-content>
 </md-card>
