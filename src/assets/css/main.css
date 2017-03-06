@@ -202,12 +202,12 @@ a, .recipe-detail-link {
 
 .content-input {
   min-height: 500px;
-  white-space: pre-wrap;
+  white-space: pre-line;
 }
 
 .content-output {
   /*min-height: 500px;*/
-  white-space: pre-wrap;
+  white-space: pre-line;
 }
 
 a, .nav-chip-link {
