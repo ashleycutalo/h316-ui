@@ -62,7 +62,6 @@ export class MenuComponent implements OnInit {
 
   }
 
-
   ngOnInit() {
     this.menuService.getMenus()
         .subscribe(

@@ -1,6 +1,5 @@
 <md-card class="recipe-title">
       <h3 class="recipes-list-header">Menu for {{ date | date:fullDate }}</h3>
-      <!-- <button md-fab class="new-recipe-button" (click)="openCreateForm()"><md-icon>add</md-icon></button> -->
 </md-card>
 
 <md-card *ngFor="let menu of menus">
@@ -15,27 +14,27 @@
   <md-card-content class="recipe-description">
     <md-card class="file-detail-header" (click)="showRecipe(menu.recipe.id)">
         <span>{{ menu.recipe.name }}</span>
-        <i class="material-icons file-detail-icon" *ngIf="!showRecipeDiv">keyboard_arrow_down</i>
-        <i class="material-icons file-detail-icon" *ngIf="showRecipeDiv">keyboard_arrow_up</i>
+        <i class="material-icons file-detail-icon" *ngIf="!getShowDetailsById(menu.recipe.id)">keyboard_arrow_down</i>
+        <i class="material-icons file-detail-icon" *ngIf="getShowDetailsById(menu.recipe.id)">keyboard_arrow_up</i>
     </md-card>
-    <md-card *ngIf="showRecipeDiv">
+    <md-card *ngIf="getShowDetailsById(menu.recipe.id)">
       <md-card>
         <md-card-header>
           <div md-card-avatar class="detail-header-image"></div>
-          <md-card-title class="recipe-detail-title">{{recipe?.name}}</md-card-title>
-          <md-card-subtitle>{{recipe?.description}}</md-card-subtitle>
+          <md-card-title class="recipe-detail-title">{{menu.recipe.name}}</md-card-title>
+          <md-card-subtitle>{{menu.recipe.description}}</md-card-subtitle>
         </md-card-header>
         <md-card-content>
           <md-input-container>
-            <input id="name" md-input value="{{recipe?.name}}" disabled>
+            <input id="name" md-input value="{{menu.recipe.name}}" disabled>
             <label class="md-input-placeholder md-float" for="name">Name</label>
           </md-input-container>
           <md-card class="content-output">
-            {{recipe?.directions}}
+            {{menu.recipe.directions}}
           </md-card>
           <md-card>
-            <img class="recipe-detail-image" *ngIf="recipe?.imageUrl" md-card-image src="{{recipe?.imageUrl}}">
-            <img class="recipe-detail-image" *ngIf="!recipe?.imageUrl" md-card-image src="../../assets/images/fork-knife-plate.jpg">
+            <img class="recipe-detail-image" *ngIf="menu.recipe.imageUrl" md-card-image src="{{menu.recipe.imageUrl}}">
+            <img class="recipe-detail-image" *ngIf="!menu.recipe.imageUrl" md-card-image src="../../assets/images/fork-knife-plate.jpg">
           </md-card>
         </md-card-content>
       </md-card>

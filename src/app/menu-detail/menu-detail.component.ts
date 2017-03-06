@@ -14,10 +14,10 @@ import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.compone
 
 export class MenuDetailComponent implements OnInit {
   dialogRef: MdDialogRef<any>;
-  private menus: Menu[]
-  private date: string
+  private menus : Menu[]
+  private date : string
   private showRecipeDiv : boolean = false
-  private recipe : Recipe = null
+  private showDetailsById : {[key : string] : boolean} = {}
 
   constructor(
       private router: Router,
@@ -32,16 +32,11 @@ export class MenuDetailComponent implements OnInit {
   }
 
   showRecipe(id : string) {
-   this.showRecipeDiv = !this.showRecipeDiv;
-   if (this.showRecipeDiv) {
-     this._menuService.getRecipeById(id).subscribe(
-       r => {
-         this.recipe = r
-       },
-       err => {
-           console.log(err);
-       });
-   }
+   this.showDetailsById[id] = !this.showDetailsById[id]
+ }
+
+ getShowDetailsById(id : string) {
+   return this.showDetailsById[id]
  }
 
  openDeleteConfirm(id: string) {
@@ -108,9 +103,13 @@ export class MenuDetailComponent implements OnInit {
         menus => {
           this.menus = menus
           this.sortMenusByMeal()
+          this.menus.map((m => {
+            this.showDetailsById[m.id] = false
+          }))
         },
         err => {
             console.log(err);
         });
   }
+
 }
