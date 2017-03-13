@@ -14,6 +14,11 @@
       <label class="md-input-placeholder md-float" for="name">Name</label>
     </md-input-container>
     <md-card class="content-output">
+      <md-card-title>Ingredients</md-card-title>
+      <p *ngFor="let i of recipe?.ingredients">{{i}}</p>
+    </md-card>
+    <md-card class="content-output">
+      <md-card-title>Directions</md-card-title>
       {{recipe?.directions}}
     </md-card>
     <md-card>

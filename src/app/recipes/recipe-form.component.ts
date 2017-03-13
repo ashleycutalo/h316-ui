@@ -21,6 +21,7 @@ export class RecipeFormComponent {
   ) {}
 
   submit(r : Recipe) {
+    r.ingredients = String(r.ingredients).split('\n')
     if (this.confirm == "CREATE RECIPE") {
       this.menuService.createRecipe(r).subscribe(
         recipe => {
@@ -52,6 +53,7 @@ export class RecipeFormComponent {
         id : '',
         name: '',
         description: '',
+        ingredients: [],
         directions: '',
         imageUrl: ''
       }

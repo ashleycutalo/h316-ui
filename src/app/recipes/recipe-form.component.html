@@ -11,6 +11,10 @@
         <input md-input value="" placeholder="Description" #description [(ngModel)]="recipe.description" name="description" required>
       </md-input-container>
       <md-input-container>
+          <textarea md-input class="content-input" value="" placeholder="Ingredients" #ingredients [(ngModel)]="recipe.ingredients" name="ingredients" required>
+          </textarea>
+      </md-input-container>
+      <md-input-container>
           <textarea md-input class="content-input" value="" placeholder="Directions" #directions [(ngModel)]="recipe.directions" name="directions" required>
           </textarea>
       </md-input-container>

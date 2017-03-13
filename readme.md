@@ -28,16 +28,5 @@ $ npm start
 $ npm run build
 ```
 
-## Running Unit Tests
-```bash
-$ npm test
-```
-
-## Running End-to-End Tests
-```bash
-# make sure you have a running app
-$ npm run e2e
-```
-
 ## License
 <a href="https://opensource.org/licenses/Apache-2.0">Apache-2.0 License</a>
